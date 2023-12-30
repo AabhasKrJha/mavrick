@@ -14,6 +14,27 @@ app.use(cookieParser());
 const salt = bcrypt.genSaltSync(10);
 const secret = "wbi2uebfo2ueb2nfe972u0102";
 
+const serverless = require('serverless-http');
+
+// Allow requests from a specific origin
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'https://mavrick-six.vercel.app');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  // Enable preflight requests
+  if (req.method === 'OPTIONS') {
+    res.sendStatus(204);
+  } else {
+    next();
+  }
+});
+
+// Your existing route handlers go here
+
+// Wrap the app with serverless
+module.exports.handler = serverless(app);
+
+
 mongoose.connect("mongodb+srv://aabhaskrjha:D6CjCykhd5zEhc4c@cluster0.lacg4xy.mongodb.net/?retryWrites=true&w=majority");
 
 app.post("/register", async(req, res) =>{
