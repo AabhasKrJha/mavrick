@@ -1,0 +1,42 @@
+main {
+  background-image: url("../../public/home-bg.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  height: 100vh;
+}
+main header {
+  padding: 50px;
+  justify-content: space-between;
+  align-items: center;
+}
+main header .logo {
+  font-size: 35px;
+}
+main header a {
+  text-decoration: none;
+  color: white;
+}
+main header nav {
+  font-size: 20px;
+  gap: 40px;
+}
+main .hero {
+  color: white;
+  margin-top: calc(20vh - 85px);
+  align-items: center;
+  justify-content: center;
+}
+main .hero span {
+  font-family: "Crimson Pro", serif;
+  font-size: 110px;
+}
+main .hero span .since {
+  margin-top: 10px;
+  font-size: 40px;
+}
+main .hero .arrow {
+  margin-top: 20px;
+  font-size: 60px;
+}/*# sourceMappingURL=header.css.map */

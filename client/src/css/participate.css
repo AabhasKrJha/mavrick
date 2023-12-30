@@ -1,0 +1,20 @@
+.page-description {
+  padding: 50px;
+  gap: 100px;
+}
+.page-description .heading {
+  width: 50%;
+  font-size: 50px;
+}
+.page-description .desciption {
+  width: 50%;
+  font-size: 19px;
+  line-height: 30px;
+}
+.page-description .desciption .description-links {
+  gap: 20px;
+}
+.page-description .desciption a {
+  text-decoration: underline;
+  color: rgb(165, 165, 165);
+}/*# sourceMappingURL=participate.css.map */
