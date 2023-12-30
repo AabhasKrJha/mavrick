@@ -9,7 +9,7 @@ function Navbar(props) {
     const {setUserInfo, userInfo} = useContext(UserContext);
 
     useEffect(()=>{
-        fetch("http://localhost:8000/profile", {
+        fetch("https://mavrick-api.vercel.app/profile", {
             credentials: "include",
         }).then(response =>{
             response.json().then(info =>{
@@ -19,7 +19,7 @@ function Navbar(props) {
     });
 
     function logout(){
-        fetch("http://localhost:8000/logout", {
+        fetch("https://mavrick-api.vercel.app/logout", {
             credentials: 'include',
             method: "POST"
         });
