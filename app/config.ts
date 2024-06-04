@@ -1,8 +1,8 @@
 // globals/config.js
 export default {
-    originalTitle: "Life of a Mavrick",
-    currentURL: "https://lifeofamavrick.vercel.app",
-    originalImage: "https://lifeofamavrick.vercel.app/social-card.png",
+    originalTitle: "Life of a Maverick",
+    currentURL: "https://lifeofamaverick.vercel.app",
+    originalImage: "https://lifeofamaverick.vercel.app/social-card.png",
     author: {
       name: "Aabhas Kumar Jha",
     },
@@ -11,6 +11,6 @@ export default {
     social: {
       twitter: "aabhaskrjha",
     },
-    siteName: "Life of a Mavrick",
+    siteName: "Life of a Maverick",
   };
   
