@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 
-import config from './config';
+import config from '../config';
+import { Navbar } from "@/components/navbar";
+import { cn } from "@/lib/utils";
+import { HeroSection } from "@/components/hero";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -46,7 +49,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={cn(inter.className)}>
+        <div className="h-[100vh] bg-[url(/home-bg-image.jpeg)] bg-fixed bg-center bg-cover bg-no-repeat">
+          <Navbar/>
+          <HeroSection/>
+        </div>
+        {children}
+      </body>
     </html>
   );
 }
