@@ -1,5 +1,7 @@
+import Link from "next/link";
+
 export function Logo(){
     return(
-        <span className="text-4xl font-bold text-white">LoaM</span>
+        <Link href="/" className="text-4xl font-bold">LoaM</Link>
     )
 }

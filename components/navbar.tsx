@@ -6,7 +6,7 @@ import { AccountBtn } from "./auth/account";
 function Navlink({href, linktext} : {href : string, linktext : string}){
     return(
         <Link href={href}>
-            <Button className="text-white font-light text-[18px]" variant={"link"} >{linktext}</Button>
+            <Button className="font-normal text-[18px]" variant={"link"} >{linktext}</Button>
         </Link>
     )
 }
