@@ -15,8 +15,8 @@ export default async function BlogsPage() {
             exploration, discovery, and the vibrant tapestry of life on the road. 
             Join us as we navigate the world, one compelling story at a time. <br /><br />
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {blogs.map(blog => (
-                    <Link href={`/blog/${blog.id}`}>
+                {blogs.map((blog, index) => (
+                    <Link key={index} href={`/blog/${blog.id}`}>
                         <div className="w-full border-2 rounded-lg flex flex-col items-center p-5 bg-gray-100 transform transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-lg" key={blog.id}>
                             <img alt={`blog-${blog.id}`} src={blog.headerImage} className="w-full"/> <br />
                             <div className="w-full">
