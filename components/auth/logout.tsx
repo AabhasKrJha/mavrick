@@ -11,7 +11,7 @@ export async function LogoutBtn(){
     router.push('/login'); 
   };
   return(
-    <Button className='w-fit' variant={"destructive"} onClick={handleSignOut}>
+    <Button className='w-fit rounded-full' variant={"destructive"} onClick={handleSignOut}>
       Sign Out
     </Button>
   )

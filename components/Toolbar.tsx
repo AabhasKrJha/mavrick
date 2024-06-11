@@ -1,6 +1,6 @@
 import { Editor } from "@tiptap/react"
 import { Toggle } from "@/components/ui/toggle"
-import { Bold, Heading1, Heading2, Heading3, Image, Italic, Link, Underline } from 'lucide-react';
+import { Bold, Heading, Image, Italic, Link, Underline } from 'lucide-react';
 import React, { useCallback } from 'react'
 import { Button } from "./ui/button";
 
@@ -33,79 +33,54 @@ export function Toolbar({editor} : {editor : Editor}){
     if (!editor) { return null }
   
     return (
-        <div className="p-2 border-2 rounded-lg w-fit flex md:items-center gap-2">
+        <div className="p-2 border-2 rounded-lg w-fit flex items-center gap-2">
+            <Toggle 
+                size={"sm"}
+                pressed = {editor.isActive("heading", { level: 2 })}
+                onPressedChange={() => 
+                    editor.chain().focus().toggleHeading({level: 2}).run() 
+                }
+            >
+                <Heading className="h-4 w-4"/>
+            </Toggle>
+
+            <Toggle 
+                size={"sm"}
+                pressed = {editor.isActive("bold")}
+                onPressedChange={() => 
+                    editor.chain().focus().toggleBold().run() 
+                }
+            >
+                <Bold className="h-4 w-4"/>
+            </Toggle>
+
+            <Toggle 
+                size={"sm"}
+                pressed = {editor.isActive("italic")}
+                onPressedChange={() => 
+                    editor.chain().focus().toggleItalic().run() 
+                }
+            >
+                <Italic className="h-4 w-4"/>
+            </Toggle>
+
+            <Toggle 
+                size={"sm"}
+                pressed = {editor.isActive("link")}
+                onClick={setLink}
+            >
+                <Link className="h-4 w-4"/>
+            </Toggle>
+
+            <Toggle 
+                size={"sm"}
+                onClick={addImage}
+                pressed = {false}
+            >
+                <Image className="h-4 w-4"/>
+            </Toggle>
             
-            <div>
-
-                <Toggle 
-                    size={"sm"}
-                    pressed = {editor.isActive("heading", { level: 1 })}
-                    onPressedChange={() => 
-                        editor.chain().focus().toggleHeading({level : 1}).run() 
-                    }
-                >
-                    <Heading1 className="h-4 w-4"/>
-                </Toggle>
-
-                <Toggle 
-                    size={"sm"}
-                    pressed = {editor.isActive("heading", { level: 2 })}
-                    onPressedChange={() => 
-                        editor.chain().focus().toggleHeading({level : 2}).run() 
-                    }
-                >
-                    <Heading2 className="h-4 w-4"/>
-                </Toggle>
-
-                <Toggle 
-                    size={"sm"}
-                    pressed = {editor.isActive("heading", { level: 3 })}
-                    onPressedChange={() => 
-                        editor.chain().focus().toggleHeading({level : 3}).run() 
-                    }
-                >
-                    <Heading3 className="h-4 w-4"/>
-                </Toggle>
-
-
-                <Toggle 
-                    size={"sm"}
-                    pressed = {editor.isActive("bold")}
-                    onPressedChange={() => 
-                        editor.chain().focus().toggleBold().run() 
-                    }
-                >
-                    <Bold className="h-4 w-4"/>
-                </Toggle>
-
-                <Toggle 
-                    size={"sm"}
-                    pressed = {editor.isActive("italic")}
-                    onPressedChange={() => 
-                        editor.chain().focus().toggleItalic().run() 
-                    }
-                >
-                    <Italic className="h-4 w-4"/>
-                </Toggle>
-
-                <Toggle 
-                    size={"sm"}
-                    pressed = {editor.isActive("link")}
-                    onClick={setLink}
-                >
-                    <Link className="h-4 w-4"/>
-                </Toggle>
-
-                <Toggle 
-                    size={"sm"}
-                    onClick={addImage}
-                    pressed = {false}
-                >
-                    <Image className="h-4 w-4"/>
-                </Toggle>
-            </div>
-            
-            <Button type="submit">Publish</Button>
+            <Button className="w-fit" type="submit">Publish</Button>
         </div>
     )
   }

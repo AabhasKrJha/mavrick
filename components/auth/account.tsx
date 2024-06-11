@@ -8,13 +8,13 @@ export async function AccountBtn(){
     if (userId === undefined){
         return(
             <Link href={"/login"}>
-                <Button className="border-2 border-black hover:text-black hover:bg-white">Login</Button>
+                <Button className="border-2 border-black hover:text-black hover:bg-white rounded-full">Login</Button>
             </Link>
         )
     }
     return(
         <Link href={"/profile"}>
-            <Button className="border-2 border-black hover:text-black hover:bg-white">Profile</Button>
+            <Button className="border-2 border-black hover:text-black hover:bg-white rounded-full">Profile</Button>
         </Link>
     )
 }

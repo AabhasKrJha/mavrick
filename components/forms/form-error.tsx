@@ -1,10 +1,6 @@
 import { TriangleAlert } from "lucide-react";
 
-interface FormErrorProps {
-    message? : string
-}
-
-export const FormError = ({message} : FormErrorProps) => {
+export const FormError = ({message} : { message? : string}) => {
     if (!message){
         return null
     } 

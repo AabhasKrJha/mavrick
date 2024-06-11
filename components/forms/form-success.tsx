@@ -1,10 +1,6 @@
 import { CircleCheck } from "lucide-react";
 
-interface FormSuccessProps {
-    message? : string
-}
-
-export const FormSuccess = ({message} : FormSuccessProps) => {
+export const FormSuccess = ({message} : {message? : string}) => {
     if (!message){
         return null
     } 

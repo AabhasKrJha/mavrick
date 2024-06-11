@@ -1,18 +1,35 @@
-"use client";
+import { auth } from "@/auth";
+import { Button } from "@/components/ui/button";
+import { db } from "@/lib/db";
+import Link from "next/link";
 
-import { MyBlogsTab } from "@/components/tabs/blogs";
-import { BlogEditorTab } from "@/components/tabs/editor";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+function AddBlogBtn(){
+    return(
+        <Link href={'/create/blog'}>
+            <Button className="bg-white text-black hover:text-white border-2 border-black rounded-full">Add Blog</Button>
+        </Link>
+    )
+}
 
-export default function ProfileForm() {
+export default async function ProfileForm() {
+    const session = await auth();
+    const userId = session?.user.id;
+    const blogs = await db.blog.findMany({
+        where : {authorId : userId}
+    })
     return (
-        <Tabs defaultValue="my-blogs" className="px-10 space-y-6">
-            <TabsList className="bg-black text-white">
-                <TabsTrigger value="my-blogs">My Blogs</TabsTrigger>
-                <TabsTrigger value="blog-editor">Create Blog</TabsTrigger>
-            </TabsList>
-            <TabsContent value="my-blogs"><MyBlogsTab/></TabsContent>
-            <TabsContent value="blog-editor"><BlogEditorTab/></TabsContent>
-        </Tabs>
+        <div className="px-10 py-10 flex flex-col gap-8">
+            <div className="flex items-center gap-4">
+                <h1 className="text-2xl font-bold">My Blogs</h1> <AddBlogBtn/>
+            </div>
+            <div className="grid grid-cols-1 gap-2 py-4">
+                {blogs.map((blog, index) => (
+                    <div className="flex item-center gap-2">
+                        {index+1}. <Link className="hover:underline" href={`/blog/${blog.id}`}>{blog.title}</Link>
+                    </div>
+                    
+                ))}
+            </div>
+        </div>
     )
 }

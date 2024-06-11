@@ -20,7 +20,7 @@ export function Tiptap(){
             Document, Text, 
             Dropcursor,
             Heading.configure({
-                levels: [1, 2, 3],
+                levels: [2],
                 HTMLAttributes : { 
                     class: "text-2xl font-bold py-4", 
                     levels : [2] 
@@ -52,19 +52,19 @@ export function Tiptap(){
         ],
         editorProps : {
             attributes : {
-                class : "border-2 p-4 rounded-lg"
+                class : "border-2 p-4 rounded-lg outline-black"
             }
         }, 
         onUpdate({editor}) {
-            (document.getElementById("editor-output") as HTMLInputElement).value = JSON.stringify(editor.getJSON());
-            (document.getElementById("html-output") as HTMLDivElement).innerHTML = editor.getHTML();
+            (document.getElementById("json-output") as HTMLInputElement).value = JSON.stringify(editor.getJSON());
+            (document.getElementById("html-output") as HTMLInputElement).value = editor.getHTML();
         }
     })
     return(
-        <div className="space-y-6">
+        <div className="flex flex-col gap-4">
             <Toolbar editor={editor as Editor}/>
             <EditorContent editor={editor}/>
-            {(!editor) ? (null) : (<Button type="submit">Publish</Button>)}
+            {(!editor) ? (null) : (<Button className="w-fit" type="submit">Publish</Button>)}
         </div>
        
     )
