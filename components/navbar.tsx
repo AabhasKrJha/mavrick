@@ -15,10 +15,10 @@ function Navlinks(){
     return(
         <div className="flex items-center justify-center gap-4">
             <Navlink href="#blogs" linktext="Blogs"/>
-            <Navlink href="#docs" linktext="Documentaries"/>
-            <Navlink href="#gallery" linktext="Gallery"/>
+            {/* <Navlink href="#docs" linktext="Documentaries"/>
+            <Navlink href="#gallery" linktext="Gallery"/> */}
             <Navlink href="/bookings" linktext="Bookings"/>
-            <Navlink href="#contact" linktext="Contact"/>
+            {/* <Navlink href="#contact" linktext="Contact"/> */}
             <AccountBtn/>
         </div>
     )

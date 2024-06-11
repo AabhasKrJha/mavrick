@@ -2,7 +2,7 @@ import * as z from "zod";
 
 export const LoginSchema = z.object({
     username : z.string().min(1, {
-        message : "Invalid username"
+        message : "Invalid username or Email"
     }),
     password : z.string().min(1, {
         message : "Password is required"

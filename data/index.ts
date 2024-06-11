@@ -2,24 +2,13 @@ import { db } from "@/lib/db";
 
 export const findIfUserExists = async (username : string, email : string) => {
     try {
-        const existing_user = await db.user.findMany({
+        const existing_user = await db.user.findFirst({
             where: {
                 OR: [
-                    { email: email },  // Search by email
-                    { username: username }   // Search by phone number
+                    { email: email },  
+                    { username: username }   
                 ]
             }
-        });
-        return existing_user;
-    } catch {
-        return null;
-    }
-}
-
-export const findUserByUsername = async (username : string) => {
-    try {
-        const existing_user = await db.user.findUnique({
-            where: { username: username }
         });
         return existing_user;
     } catch {

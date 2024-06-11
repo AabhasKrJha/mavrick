@@ -26,9 +26,7 @@ export const Register = async (values: z.infer<typeof RegisterSchema>) => {
 
     const existing_user = await findIfUserExists(username, email);
 
-    console.log(existing_user)
-
-    if (existing_user?.length as number > 0) {
+    if (existing_user) {
         return { error : "Email or username in use." }
     }
 
@@ -38,8 +36,6 @@ export const Register = async (values: z.infer<typeof RegisterSchema>) => {
             name : name, username: username, email : email, password : hashed_password
         }
     })
-
-    console.log("user Created");
 
     return { success: "Account Created. Login to Continue." };
 };

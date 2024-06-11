@@ -8,7 +8,7 @@ import * as z from "zod";
 import bcrypt from "bcryptjs";
 
 import { LoginSchema } from "@/schemas";
-import { findUserByUsername } from "@/data";
+import { findIfUserExists } from "@/data";
  
 export default { 
     providers: [
@@ -18,8 +18,14 @@ export default {
 
                 if (validatedFields.success) {
 
-                    const { username, password } = validatedFields.data;
-                    const existing_user = await findUserByUsername(username);
+                    let { username, password } = validatedFields.data;
+                    const existing_user = await findIfUserExists(username, username);
+
+                    if (!existing_user){
+                        return null;
+                    } else {
+                        username = existing_user.username;
+                    }
 
                     if (!existing_user || !existing_user.password) return null;
 

@@ -62,9 +62,9 @@ export function LoginForm() {
           name="username"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Username</FormLabel>
+              <FormLabel>Username / Email</FormLabel>
               <FormControl>
-                <Input placeholder="Enter your username" {...field} disabled={isPending}/>
+                <Input placeholder="Enter your username or email" {...field} disabled={isPending}/>
               </FormControl>
               {/* <FormDescription>
                 This is your public display name.
