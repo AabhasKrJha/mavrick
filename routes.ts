@@ -1,6 +1,10 @@
 export const publicRoutes = [
     "/",
+    "/blogs",
+    "/^\/blog\/.*/",
+    "/bookings",
 ];
+
 
 export const authRoutes = [
     "/login", 
