@@ -24,7 +24,7 @@ export default async function ProfileForm() {
             </div>
             <div className="grid grid-cols-1 gap-2 py-4">
                 {blogs.map((blog, index) => (
-                    <div className="flex item-center gap-2">
+                    <div key={index} className="flex item-center gap-2">
                         {index+1}. <Link className="hover:underline" href={`/blog/${blog.id}`}>{blog.title}</Link>
                     </div>
                     
