@@ -7,13 +7,13 @@ export async function AccountBtn(){
     const userId = session?.user.id;
     if (userId === undefined){
         return(
-            <Link className="ml-3" href={"/login"}>
+            <Link href={"/login"}>
                 <Button className="border-2 border-black hover:text-black hover:bg-white">Login</Button>
             </Link>
         )
     }
     return(
-        <Link className="ml-3" href={"/profile"}>
+        <Link href={"/profile"}>
             <Button className="border-2 border-black hover:text-black hover:bg-white">Profile</Button>
         </Link>
     )
