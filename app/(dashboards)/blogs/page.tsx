@@ -10,7 +10,7 @@ export default async function BlogsPage() {
     return(
         <div className="p-10">
             <h1 className="text-6xl font-bold">Blogs</h1> <br />
-            Embark on an extraordinary odyssey with Maverick's Blogs—a captivating journal 
+            Embark on an extraordinary odyssey with Maverick&apos;s Blogs—a captivating journal 
             that unfolds the tales of diverse journeys. Immerse yourself in the chronicles of 
             exploration, discovery, and the vibrant tapestry of life on the road. 
             Join us as we navigate the world, one compelling story at a time. <br /><br />
