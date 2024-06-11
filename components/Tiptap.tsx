@@ -8,7 +8,7 @@ import Text from '@tiptap/extension-text'
 import Heading from "@tiptap/extension-heading";
 import Paragraph from '@tiptap/extension-paragraph';
 import Link from '@tiptap/extension-link';
-import Image from '@tiptap/extension-Image';
+import Image from '@tiptap/extension-image';
 
 import { Toolbar } from "@/components/Toolbar";
 import { Button } from "@/components/ui/button";
